@@ -42,7 +42,13 @@ function ChatRoom() {
     input.value = "";
   };
   return (
-    <div className={styles.contChat}>
+    <div style={{
+      height:"300px",
+      display:"flex",
+      alignContent:"center",
+      justifyContent:"center",
+      
+    }}>
       <h1>Chat Rooms</h1>
       <p>{isConnected ? "Conectado a la Room" : "No conectado a la Room"}</p>
       <div className={styles.contMessages}>

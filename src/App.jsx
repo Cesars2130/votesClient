@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import ChatComponent from "./components/Chat";
+import Game from "./components/Game";
 
 
 export default function App() {
@@ -39,14 +40,18 @@ export default function App() {
           <div
             style={{
               width: "70%",
-              backgroundColor: "yellow",
+              backgroundColor: "white",
             }}
           >
+              <Game>
+
+              </Game>
           </div>
           <div
             style={{
               width: "30%",
               backgroundColor: "grey",
+              borderRadius:"5px"
             }}
           >
             <ChatComponent>

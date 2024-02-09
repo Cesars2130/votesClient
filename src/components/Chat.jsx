@@ -17,13 +17,10 @@ const ChatComponent = () => {
     });
 
     socket.on("chat_message", (data) => {
-      console.log(data)
+      console.log(data);
       setMensajes((mensajes) => [...mensajes, data]);
-      console.log('Segun el id', data.usuario,typeof(data.usuario));
+      console.log("Segun el id", data.usuario, typeof data.usuario);
     });
-
-
-
 
     return () => {
       socket.off("connect");
@@ -51,12 +48,33 @@ const ChatComponent = () => {
   };
 
   return (
-    <div className={styles.contChat}>
-      <h1>Chat Global</h1>
-      <p>
+    <div
+      style={{
+        width: "100%",
+        height: "500px",
+        display: "flex",
+        flexDirection: "column",
+        alignContent: "center",
+        margin: "10px",
+      }}
+    >
+      <h1
+        style={{
+          textAlign: "center",
+        }}
+      >
+        Chat Global
+      </h1>
+      <p style={{
+          textAlign: "center",
+        }}>
         {isConnected ? "Estas conectado al Chat" : "No estas conectado al Chat"}
       </p>
-      <div className={styles.contMessages}>
+      <div
+        style={{
+          textAlign: "center",
+        }}
+      >
         {mensajes.map((mensaje) => (
           <li key={mensaje}>
             {mensaje.usuario}: {mensaje.mensaje}
@@ -64,7 +82,15 @@ const ChatComponent = () => {
         ))}
       </div>
       <textarea
-        className={styles.textarea}
+        style={{
+          maxWidth: "420px",
+          padding: "5px",
+          textAlign: "center",
+          borderRadius:"5px",
+          alignContent:"center",
+          margin:"5px"
+          
+        }}
         rows="4"
         cols="33"
         placeholder="Envía un mensaje"
@@ -72,13 +98,39 @@ const ChatComponent = () => {
         type="text"
         onChange={(e) => setNuevoMensaje(e.target.value)}
       />
-      <button className={styles.btnChat} onClick={enviarMensaje}>
+      <button  style={{
+          maxWidth: "435px",
+          padding: "5px",
+          textAlign: "center",
+          borderRadius:"5px",
+          alignContent:"center",
+          margin:"5px"
+          
+        }} onClick={enviarMensaje}>
         Enviar
       </button>
-      <h3>Quieres entrar a una room chat</h3>
-      <h3>Ingresa el codigo de la room </h3>
-      <input className={styles.inputChat} id="goRoom" type="text"></input>
-      <button className={styles.btnChat} onClick={GoRoom}>
+      
+      <h3 style={{
+          textAlign: "center",
+        }}>Ingresa el codigo de la room </h3>
+      <input    style={{
+          maxWidth: "420px",
+          padding: "5px",
+          textAlign: "center",
+          borderRadius:"5px",
+          alignContent:"center",
+          margin:"5px"
+          
+        }} id="goRoom" type="text"></input>
+      <button  style={{
+          maxWidth: "435px",
+          padding: "5px",
+          textAlign: "center",
+          borderRadius:"5px",
+          alignContent:"center",
+          margin:"5px"
+          
+        }} onClick={GoRoom}>
         Entrar a la room
       </button>
     </div>
