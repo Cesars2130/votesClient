@@ -5,6 +5,8 @@ import Game from "./components/Game";
 
 
 export default function App() {
+
+  const isLoggedIn = null;
   return (
     <>
       <section>
